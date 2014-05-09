@@ -6,6 +6,11 @@ m{
 	use warnings;
 }; # Until cpants will know it make strict
 use parent 'AnyEvent::RPC::Enc';
+BEGIN {
+	eval q{ use mro 'c3';1 }
+	or eval q{ use Class::C3;1 }
+	or die "'mro' or 'Class::C3' required";
+}
 use Carp;
 require AnyEvent::RPC; our $VERSION = $AnyEvent::RPC::VERSION;
 

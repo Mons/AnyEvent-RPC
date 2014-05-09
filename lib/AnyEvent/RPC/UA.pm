@@ -46,7 +46,7 @@ sub call {
 		headers => {
 			#'Content-Type'   => 'text/xml',
 			'User-Agent'     => $self->{ua},
-			do { use bytes; ( 'Content-Length' => length($args{body}) ) },
+			do { use bytes; ( 'Content-Length' => bytes::length($args{body}) ) },
 			%{$args{headers} || {}},
 		},
 		body    => $args{body},
